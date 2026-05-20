@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.entity.UserEntity;
+import com.example.demo.entity.User;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
 
@@ -19,7 +19,7 @@ public class UserRestController {
     
     @GetMapping("user")
     public String get(@RequestParam String name , @RequestParam String email , @RequestParam String password){
-        UserEntity newUser = userService.BuildUser(name, email, password) ;
+        User newUser = userService.BuildUser(name, email, password) ;
                                         try {
                                             userService.saveUser(newUser) ;
                                         } catch (Exception e) {
