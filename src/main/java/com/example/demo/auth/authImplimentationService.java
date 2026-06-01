@@ -1,5 +1,8 @@
 package com.example.demo.auth;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -21,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class authImplimentationService implements authService {
+public class AuthImplimentationService implements AuthService {
 
     private final AuthenticationManager authenticationManager ;
     private final JwtService JwtService ;    
@@ -48,12 +51,21 @@ public class authImplimentationService implements authService {
     public void register (final RegistrationRequest request)throws Exception {
         checkUserEmail(request.getEmail()) ;
         checkUserPasswords(request.getPassword(),request.getConfirmedPassword()) ;
-
+        final User user = this.UserMapper.toUser(request);
+        log.debug("Saving user {}",user);
+        this.UserRepository.save(user) ;
+        final List<User> users = new ArrayList<>() ;
+        users.add(user) ;
     }
     @Override
     public AuthenticationResponse refreshToken(RefreshRequest request) {
-        
-        return null ;
+        final String newAccessToken = this.JwtService.refreshAccessToken(request.getRefreshToken()) ;
+        final String tokenType = "Bearer" ;
+        return AuthenticationResponse.builder() 
+        .accessToken(newAccessToken)
+        .refreshToken(request.getRefreshToken())
+        .tokenType(tokenType)
+        .build() ;
     }
 
     private void checkUserEmail(final String email)throws Exception{
@@ -63,9 +75,9 @@ public class authImplimentationService implements authService {
         }
 
     }
-    private String checkUserPasswords(final String password , final String confirmedPassword){
-        if (password == null || confirmedPassword) {
-            
+    private void checkUserPasswords(final String password , final String confirmedPassword)throws Exception{
+        if (password == null || !password.equals(confirmedPassword)) {
+            throw new Exception("There is a problem in the password") ;
         }
     }
 }

@@ -5,8 +5,8 @@ import com.example.demo.dto.request.RefreshRequest;
 import com.example.demo.dto.request.RegistrationRequest;
 import com.example.demo.dto.response.AuthenticationResponse;
 
-public interface authService {
+public interface AuthService {
     AuthenticationResponse login(AuthenticationRequest request) ;
     void register (final RegistrationRequest request)throws Exception ;
-    AuthenticationResponse refreshToken(RefreshRequest request) ;
+    AuthenticationResponse refreshToken(RefreshRequest request)throws Exception ;
 }
