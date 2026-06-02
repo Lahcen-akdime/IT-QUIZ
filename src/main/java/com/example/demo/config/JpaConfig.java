@@ -13,18 +13,18 @@ import org.springframework.security.crypto.password.PasswordEncoder ;
 @EnableJpaAuditing(auditorAwareRef = "auditorAware")
 public class JpaConfig {
     
-    @Bean
-    public PasswordEncoder PasswordEncoder(){
-        return new BCryptPasswordEncoder() ;
-    }
-    @Bean
-    public AuthenticationManager authenticationManager(
-        final AuthenticationConfiguration config 
-    )throws Exception{
-        return config.getAuthenticationManager() ;
-    }
-    @Bean 
-    public AuditorAware<String> auditorAware(){
-        return new ApplicationAuditorAware() ;
-    }
+    // @Bean
+    // public PasswordEncoder PasswordEncoder(){
+    //     return new BCryptPasswordEncoder() ;
+    // }
+    // @Bean
+    // public AuthenticationManager authenticationManager(
+    //     final AuthenticationConfiguration config 
+    // )throws Exception{
+    //     return config.getAuthenticationManager() ;
+    // }
+    // @Bean 
+    // public AuditorAware<String> auditorAware(){
+    //     return new ApplicationAuditorAware() ;
+    // }
 }

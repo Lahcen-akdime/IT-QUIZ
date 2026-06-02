@@ -8,7 +8,6 @@ import org.springframework.security.core.GrantedAuthority;
 
 import jakarta.persistence.CascadeType;
 
-// import javax.management.relation.Role;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,6 +16,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -34,14 +34,17 @@ import lombok.Setter;
 public class User implements org.springframework.security.core.userdetails.UserDetails{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
     @NonNull
+    @Valid
     private String name ;
     @Column(nullable = false , unique = true )
+    @Valid
     private String email ;
     
     @NonNull
+    @Valid
     private String password ;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities(){

@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public interface UserRepository extends JpaRepository<User,Long> {
     public User findByName(String name);
-    boolean exexistsByEmailIgnoreCase(String email) ;
+    boolean existsByEmailIgnoreCase(String email) ;
     Optional<User> findByEmailIgnoreCase(String email) ;
     @Override
     Optional<User> findById(Long id) ;

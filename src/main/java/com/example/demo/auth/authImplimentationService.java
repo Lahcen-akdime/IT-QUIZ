@@ -69,7 +69,7 @@ public class AuthImplimentationService implements AuthService {
     }
 
     private void checkUserEmail(final String email)throws Exception{
-        final boolean emailExists = this.UserRepository.exexistsByEmailIgnoreCase(email) ;
+        final boolean emailExists = this.UserRepository.existsByEmailIgnoreCase(email) ;
         if(emailExists){
             throw new Exception("The email already exist !");
         }
