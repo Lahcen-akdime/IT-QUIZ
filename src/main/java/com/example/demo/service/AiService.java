@@ -10,7 +10,7 @@ public class AiService {
     GenerateContentResponse response =
         client.models.generateContent(
             "gemini-2.5-flash",
-            "Explain how AI works in a 10 words",
+            "Give me 10 question of redhat linux (i want your answer in json format) ",
             null);
 
     System.out.println(response.text());
