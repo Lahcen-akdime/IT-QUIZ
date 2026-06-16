@@ -16,20 +16,10 @@ import com.example.demo.repository.UserRepository;
 public interface UserService extends UserDetailsService {
     void deleteAccount(Long userId) ;
     void changePassword(Long userId,final ChangePasswordRequest request)throws Exception ;
-    // public List<User> getAllUsers(){
-    //     return userRepository.findAll() ;
-    // }
-    // public User getUserByName(String name){
-    //     return userRepository.findByName(name) ;
-    // }
-    // public User BuildUser(String name , String email , String password){
-    //     return userEntity.builder().name(name).email(email).password(password).build() ;
-    // }
-    // public void saveUser(User user){
-    //      userRepository.save(user) ;
-    // }
-    // public UserRepository getUserRepository(){
-    //     return userRepository ;
-    // }
+    // public List<User> getAllUsers() ;
+    // public User getUserByName() ;
+    // public User BuildUser(String name , String email , String password) ;
+    // public void saveUser(User user) ;
+    public UserRepository getUserRepository() ;
 
 }

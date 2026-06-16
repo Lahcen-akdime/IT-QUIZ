@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
     @Value("${spring.application.name}")
     private String appName ;
-    @RequestMapping("home")
+    @RequestMapping("/home")
     public String index() {
         System.out.println(appName);
         return "index.html";

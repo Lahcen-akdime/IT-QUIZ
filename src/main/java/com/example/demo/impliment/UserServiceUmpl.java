@@ -45,7 +45,7 @@ public class UserServiceUmpl implements UserService{
         this.userRepository.save(savedUser) ;
     }
     @Override
-    public UserDetails loadUserByUsername(final String email)throws UsernameNotFoundException{
+    public UserDetails loadUserByUsername(final String email)throws UsernameNotFoundException {
         return this.userRepository.findByEmailIgnoreCase(email)
                 .orElseThrow(()->new UsernameNotFoundException("Not found email : "+email)) ;
     }
@@ -60,4 +60,8 @@ public class UserServiceUmpl implements UserService{
     // public String getUsername(){
     //     return this.name ;
     // }
+    //     public List<User> getAllUsers() ;
+    // public User getUserByName() ;
+    // public User BuildUser(String name , String email , String password) ;
+    // public void saveUser(User user) ;
 }
