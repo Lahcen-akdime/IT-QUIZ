@@ -22,4 +22,41 @@ public class Question {
     @JoinColumn(name = "formation_id")
     private Formation formation ;
 
+    public Question(){
+
+    }
+
+    public Question(String question , Formation formation){
+        this.question = question ;
+        this.formation = formation ;
+    }
+
+    public int getId(){
+        return id ;
+    }
+
+    public String getQuestion(){
+        return question ;
+    }
+
+    public Formation getFormation(){
+        return formation ;
+    }
+
+    public void setId(int id){
+        this.id = id ;
+    }
+
+    public void setQuestion(String question){
+        this.question = question ;
+    }
+
+    public void setFormation(Formation formation){
+        this.formation = formation ;
+    }
+
+    public String toString(){
+        return "Question [id=" + id + ", question=" + question + ", formation=" + formation + "]";
+    }
+
 }

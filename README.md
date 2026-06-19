@@ -67,7 +67,6 @@ Plateforme web intelligente de préparation aux certifications IT
 - PostgreSQL
 
 ### Intelligence Artificielle
-- OpenAI API
 - Google Gemini API
 
 ---

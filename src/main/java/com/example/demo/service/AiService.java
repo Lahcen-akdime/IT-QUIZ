@@ -22,7 +22,7 @@ public class AiService {
   @Autowired
   private InformationRepository informationRepository ;
   
-  public String askAi() {
+  public String askAi() { 
     Client client = Client.builder().apiKey(ApiKeyConfig.getApiKey()).build();
     GenerateContentResponse response =
         client.models.generateContent(
@@ -31,11 +31,11 @@ public class AiService {
             +this.getAllInformationText().toString()+
             "(in json format , respecting this structure of each question : {questions[] each question : {question , " +
             ", options[] , {correct answer : index of the correct option} }}) , "+
-            "Return ONLY valid JSON. " + //
-            "Do not use markdown. " + //
-            "Do not use code fences. " + //
-            "Do not write explanations. " + //
-            "Do not write ```json. " + //
+            "Return ONLY valid JSON. " +
+            "Do not use markdown. " + 
+            "Do not use code fences. " +
+            "Do not write explanations. " +
+            "Do not write ```json. " + 
             "The response must begin with { and end with }." ,
             null);
           return response.candidates().get().get(0)
