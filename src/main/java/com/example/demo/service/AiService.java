@@ -30,7 +30,7 @@ public class AiService {
             "Give me a quiz of 10 questions for this informations "
             +this.getAllInformationText().toString()+
             "(in json format , respecting this structure of each question : {questions[] each question : {question , " +
-            ", options[] , {correct answer : index of the correct option} }}) , "+
+            ", options[] , {correct answer : index of the correct option (qui commence par 0)} }}) , "+
             "Return ONLY valid JSON. " +
             "Do not use markdown. " + 
             "Do not use code fences. " +

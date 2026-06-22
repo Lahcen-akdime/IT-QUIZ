@@ -26,4 +26,5 @@ public class Information {
     @ManyToOne
     @JoinColumn(name = "formation_id")
     private Formation formation ;
+    
 }

@@ -9,7 +9,7 @@ import jakarta.persistence.ManyToOne;
 import lombok.NonNull;
 
 @Entity
-public class Question {
+public class Questions {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,11 +22,11 @@ public class Question {
     @JoinColumn(name = "formation_id")
     private Formation formation ;
 
-    public Question(){
+    public Questions(){
 
     }
 
-    public Question(String question , Formation formation){
+    public Questions(String question , Formation formation){
         this.question = question ;
         this.formation = formation ;
     }

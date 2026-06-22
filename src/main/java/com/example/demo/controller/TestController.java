@@ -25,9 +25,7 @@ public class TestController {
 
         String response =  aiService.askAi() ;
         QuizDTO quizDTO = objectMapper.readValue(response, QuizDTO.class) ;
-        return quizDTO.getQuestions().toString() ;
+        return quizDTO.getQuestions().get(0).getOptions()[2] ;
         // return response ;
-
-       
     }
 }
