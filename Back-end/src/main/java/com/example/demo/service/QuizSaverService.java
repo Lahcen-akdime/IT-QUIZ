@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.QuestionsDTO;
+import com.example.demo.dto.QuizDTO;
 import com.example.demo.entity.Formation;
 import com.example.demo.entity.Options;
 import com.example.demo.entity.Questions;
@@ -29,9 +30,9 @@ public class QuizSaverService {
     private OptionRepository optionRepository ;
 
 
-    public List<QuestionsDTO> SaveQuiz(List<QuestionsDTO> questions , Long formation_id) {
+    public Boolean SaveQuiz(QuizDTO quiz , Long formation_id) {
         Formation formation = formationRepository.findFormationById(formation_id) ;
-        for(QuestionsDTO question : questions){
+        for(QuestionsDTO question : quiz.getQuestions()){
             Questions questionEntity = new Questions() ;
             questionEntity.setFormation(formation);
             questionEntity.setQuestion(question.getQuestion());
@@ -49,7 +50,7 @@ public class QuizSaverService {
                 optionRepository.save(optionEntity) ;
             }
         }
-        return questions;
+        return true;
     }
 }
 
