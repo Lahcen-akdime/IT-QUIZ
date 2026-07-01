@@ -27,9 +27,11 @@ public class TestController {
     @RequestMapping("/test")
     public Boolean test() throws Exception {
 
-        String response =  aiService.askAi() ;
-        QuizDTO quizDTO = objectMapper.readValue(response, QuizDTO.class) ;
-        Boolean resault = quizSaverService.SaveQuiz(quizDTO, 1L) ;
-        return resault ;
+        // String response =  aiService.askAi() ;
+        // QuizDTO quizDTO = objectMapper.readValue(response, QuizDTO.class) ;
+        // Boolean resault = quizSaverService.SaveQuiz(quizDTO, 1L) ;
+        // return resault ;
+
+        return true ;
     }
 }
