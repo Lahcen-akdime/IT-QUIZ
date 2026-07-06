@@ -1,0 +1,59 @@
+<!-- ============================================================
+     IT-QUIZ — Landing Hero (photo plein cadre + texte superposé)
+     Uniquement des classes utilitaires Tailwind, aucun fichier CSS.
+     Vérifie que ton tailwind.config.js scanne bien ce fichier
+     dans `content: [...]`.
+============================================================= -->
+
+<section class="carousel-container bg-white">
+
+  <!-- Photos en fond, une par personne, crossfade + léger zoom (Ken Burns) -->
+  <div
+    *ngFor="let person of people; let i = index"
+    class="carousel-item"
+    [ngClass]="i === currentIndex ? 'active' : ''"
+  >
+    <img
+      [src]="person.src"
+      [alt]="person.alt"
+      class="h-full w-full object-cover object-[68%_center]"
+    />
+  </div>
+
+  <!-- Voile en dégradé pour garder le texte lisible sur la gauche -->
+  <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/40 to-transparent"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+
+  <!-- Contenu texte -->
+  <div class="relative z-10 flex h-full items-center px-6 sm:px-12 lg:px-20">
+    <div class="max-w-lg">
+
+      <h1 class="text-4xl font-medium leading-[1.15] tracking-tight text-slate-900 sm:text-5xl">
+        Prepare your<br />
+        IT Exams With<br />
+        IT&#8209;Quiz AI
+      </h1>
+
+      <!-- CTA Button -->
+      <div class="group relative mt-9 inline-block">
+        <button
+          type="button"
+          class="relative z-10 rounded-full bg-[#8b7355] px-9 py-4 text-sm font-medium text-white transition-colors hover:bg-[#78624a]"
+        >
+          Lets Go
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- indicateurs de rotation -->
+  <div class="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 gap-2 sm:left-auto sm:right-10 sm:translate-x-0">
+    <span
+      *ngFor="let person of people; let i = index"
+      class="h-1.5 rounded-full transition-all duration-300"
+      [ngClass]="i === currentIndex ? 'w-6 bg-[#8b7355]' : 'w-1.5 bg-slate-300'"
+    ></span>
+  </div>
+
+</section>
