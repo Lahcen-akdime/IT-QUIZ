@@ -1,9 +1,17 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { NgIf } from '@angular/common';
+import { AuthService } from '../../Services/auth.service';
 
 @Component({
   selector: 'navbar',
   templateUrl: './navbar.html',
-  imports : [RouterModule]
+  imports: [RouterLink, RouterLinkActive, NgIf]
 })
-export class NavbarComponent {}
+export class NavbarComponent {
+  constructor(public authService: AuthService) {}
+
+  logout(): void {
+    this.authService.logout();
+  }
+}
