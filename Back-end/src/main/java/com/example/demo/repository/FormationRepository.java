@@ -9,7 +9,4 @@ import com.example.demo.entity.Formation;
 public interface FormationRepository extends JpaRepository<Formation,Long>{
 
     public Formation findFormationById(Long id) ;
-
-    public Formation<List> getAllFormations() ;
-
 }

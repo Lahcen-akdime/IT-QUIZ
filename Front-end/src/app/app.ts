@@ -1,10 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { Router, RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
-import { NavbarComponent } from './Shared/Navbar/navbar';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [ NavbarComponent , RouterModule, RouterOutlet] ,
+  imports: [RouterOutlet],
   standalone : true ,
   templateUrl: './app.html',
   styleUrl: './app.css'

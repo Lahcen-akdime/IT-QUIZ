@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { HomePage } from './Shared/Home/Home';
 import { LoginPage } from './Pages/Auth/Login/Login';
 import { RegisterPage } from './Pages/Auth/Register/Register';
 import { QuizPage } from './Pages/Quiz/Quiz';
